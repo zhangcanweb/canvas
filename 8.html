@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>鼠标移动小飞机</title>
+<style>
+	body{
+		text-align: center;
+	}	
+	#c{
+		border: 1px solid #333;
+	}
+</style>
+</head>
+<body>
+	<canvas id="c" width="800" height="600"></canvas>
+	<script>
+		var ctx=c.getContext("2d");
+		c.onmousemove=function(e){
+			var img=new Image();
+			img.src="plan.png";
+			ctx.clearRect(0,0,800,600);
+			img.onload=function(){				
+				ctx.drawImage(img,e.offsetX,e.offsetY);
+			}		
+		}
+	</script>
+</body>
+</html>

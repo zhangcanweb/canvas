@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		#main{
+			position: relative;
+			width: 800px;
+			margin:0 auto;
+		}
+		#img1{
+			position: absolute;
+			top: 325px;
+			left: 820px;
+			z-index: -100;
+			animation: swim 12s linear 0s infinite normal;
+		}
+		#img2{
+			position: absolute;
+			top: 520px;				
+			z-index: -100;
+			animation: swim 6s linear 0s infinite normal;
+		}
+		#r1{
+			width: 800px;
+			height: 800px;
+			border: 1px solid #333;
+			border-radius: 50%;
+			margin:0 auto;
+			background-color: blue;
+			position: relative;
+			z-index: -1000;
+			overflow: hidden;
+			transform: rotateZ(100deg);
+		}
+		#r2{
+			width: 1000px;
+			height: 930px;
+			border-radius: 1px solid #fff;
+			border-radius: 45%;
+			background-color: white;
+			position: absolute;
+			animation: wave 3s linear 0s infinite alternate;
+			z-index: 100;
+		}
+		@keyframes wave{
+			0% {
+        		transform: translate(-50%, 0) rotateZ(0deg);
+    		}
+    		50%{
+        		transform: translate(-50%, -2%) rotateZ(180deg);
+    		}
+     		100% {
+       			transform: translate(-50%, 0%) rotateZ(360deg);
+    		}
+
+	    }
+		@keyframes swim{
+			0%  {
+				left:600px;
+		
+			}
+			50% {
+				left:400px;
+			
+			}
+			100% {
+				left:0px;
+				
+			}
+		}
+	</style>
+</head>
+<body>
+	<div id="main">
+		<div id="r1">
+	 <div id="r2">
+	 	
+	 </div>
+	</div>
+	<img src="1.png" alt="" id='img1'>
+	<img src="fish.png" alt="" id="img2">
+	</div>
+	
+</body>
+</html>

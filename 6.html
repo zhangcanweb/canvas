@@ -1,0 +1,72 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>绘制路径练习</title>
+<style>
+	body{
+		text-align: center;
+	}	
+	#c{
+		border: 1px solid #000;
+	}
+</style>
+</head>
+
+<body>
+<canvas id="c" width="800" height="600">
+	
+</canvas>
+<script>
+	"use strict";
+	var ctx=c.getContext("2d");
+	var a=400,b=400;
+	function openMouth(a){
+		ctx.beginPath();
+		ctx.arc(a,100,50,-0.25*Math.PI,0.25*Math.PI,true);
+		ctx.moveTo(a+25*Math.sqrt(2),100-25*Math.sqrt(2));
+		ctx.lineTo(a,100);
+		ctx.moveTo(a,100);
+		ctx.lineTo(a+25*Math.sqrt(2),100+25*Math.sqrt(2));
+		ctx.closePath();
+		ctx.stroke();
+		ctx.beginPath();
+		ctx.arc(a,70,10,0,2*Math.PI);
+		var g=ctx.createLinearGradient(800,0,20,20);
+		g.addColorStop(0,"#fff");
+		g.addColorStop(0.5,"blue");
+		g.addColorStop(1,"blue");
+		ctx.closePath();
+		ctx.fillStyle=g;
+		ctx.fill();
+	};
+//	openMouth(a);
+	function closeMouth(b){
+		ctx.beginPath();
+		ctx.arc(b,100,50,0,2*Math.PI);
+		ctx.moveTo(b,100);
+		ctx.lineTo(b+50,100);
+		ctx.closePath();
+		ctx.stroke();
+		ctx.beginPath();
+		ctx.arc(b,70,10,0,2*Math.PI);
+		var g=ctx.createLinearGradient(800,0,20,20);
+		g.addColorStop(0,"#fff");
+		g.addColorStop(0.5,"blue");
+		g.addColorStop(1,"blue");
+		ctx.closePath();
+		ctx.fillStyle=g;
+		ctx.fill();
+	};
+//	closeMouth(b);
+	setInterval(function(){
+		ctx.clearRect(345,45,120,120);
+		openMouth(a);
+	},400);
+	setInterval(function(){
+		ctx.clearRect(345,40,120,120);
+		closeMouth(b);		
+	},800)
+</script>
+</body>
+</html>
